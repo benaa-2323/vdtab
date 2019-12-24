@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#box-tab{
+			width: 500px; margin: auto; border: 1px solid red; }
+		#box-tab header ul{ list-style: none; margin: 0px; padding: 0px; }
+		#box-tab header ul li {display: inline-block; padding: 10px; cursor: pointer;}
+		.content-tab{ min-height: 300px; display: none; background: cyan;}
+	</style>
+</head>
+<body>
+	<div id="box-tab">
+		<header>
+			<ul>
+				<li data-tab='content-1'>Tab1</li>
+				<li data-tab='content-2'>Tab2</li>
+				<li data-tab='content-3'>Tab3</li>
+			</ul>
+		</header>
+		<section>
+			<div id="content-1" class="content-tab"> Nội dung của tab 1</div>
+			<div id="content-2" class="content-tab"> Nội dung tab 2</div>
+			<div id="content-3" class="content-tab"> Nội dung tab 3</div>
+		</section>
+	</div>
+
+	<script src="abc/jquery-3.4.1.min.js""></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#box-tab header ul li').click(function(){
+				var _id =$(this).attr('data-tab');
+
+					$('#box-tab section div[class=content-tab]').fadeOut();
+
+					$('#box-tab section div[id='+_id+']').fadeIn(500);
+
+					$(this).css('border-top','3px solid blue;')
+			});
+		});
+	</script>
+</body>
+</html>
